@@ -1,0 +1,25 @@
+<div class="mt-4 mb-4">
+    <h3>Study Buddy Students</h3>
+</div>
+
+<table class="table table-hover mt-4">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Address</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of studentList">
+          <td></td>
+          <td>{{student.firstName}}</td>
+          <td>{{student.lastName}}</td>
+          <td>{{student.homeAddress}}</td>
+          <td>{{student.emailAddress}}</td>
+          <td><button class="btn btn-sm btn-secondary">View enrolled courses</button></td>
+      </tr>
+    </tbody>
+</table>
