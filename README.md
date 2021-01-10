@@ -1,5 +1,5 @@
 # StudyBuddy
 
-Frontend  - Angular
-Backend   - Spring
-Database  - Postgres
+Frontend  - Angular<br>
+Backend   - Spring<br>
+Database  - Postgres<br>
