@@ -13,6 +13,7 @@ import javax.persistence.Table;
 public class Teacher {
 
   @Id
+  @Column(name = "teacher_id")
   private Long id;
   @Column(name = "first_name")
   private String firstName;
