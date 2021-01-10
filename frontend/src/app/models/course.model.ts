@@ -1,5 +1,5 @@
 export class Course {
-    courseId: number;
+    id: number;
     courseName: String;
     coursePoints: number;
 }

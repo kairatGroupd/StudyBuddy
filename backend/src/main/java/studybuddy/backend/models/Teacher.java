@@ -20,16 +20,18 @@ public class Teacher {
   @Column(name = "last_name")
   private String lastName;
   @Column(name = "email_address")
-  private String email;
+  private String emailAddress;
+  @Column(name = "teacher_salary")
+  private Float teacherSalary;
   @Column(name = "password")
   private String password;
 
   public Teacher() {}
 
-  public Teacher(String firstName, String lastName, String email, String password) {
+  public Teacher(String firstName, String lastName, String emailAddress, Float teacherSalary,String password) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
+    this.emailAddress = emailAddress;
     this.password = password;
   }
 }

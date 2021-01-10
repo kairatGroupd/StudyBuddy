@@ -23,6 +23,8 @@ public class Student {
   private String homeAddress;
   @Column(name = "email_address")
   private String emailAddress;
+  @Column(name = "student_points")
+  private String studentPoints;
   @Column(name = "password")
   private String password;
 

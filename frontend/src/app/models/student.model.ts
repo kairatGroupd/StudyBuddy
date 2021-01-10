@@ -3,5 +3,5 @@ export class Student {
     lastName: String;
     homeAddress: String;
     emailAddress: String;
-    studentPoints: String;
+    studentPoints: number;
 }

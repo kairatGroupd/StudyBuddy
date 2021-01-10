@@ -26,5 +26,8 @@ export class ListCoursesComponent implements OnInit {
     this.getCourses();
   }
 
+  public enroll() {
+    alert("You have enrolled in this course");
+  }
 
 }
