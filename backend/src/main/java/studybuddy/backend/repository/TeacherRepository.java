@@ -6,4 +6,5 @@ import studybuddy.backend.models.Teacher;
 
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, Long> {
+
 }

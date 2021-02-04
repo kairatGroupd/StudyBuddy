@@ -10,10 +10,16 @@ import { ApiService } from '../../services/api.service';
 export class ListCoursesComponent implements OnInit {
 
   public courseList: Course[];
+  public course = new Course;
 
   constructor(
     private apiService: ApiService
   ) { }
+
+  private defaultCourse() {
+    this.course.courseName = "";
+    this.course.coursePoints = 0;
+  }
 
   private getCourses() {
     this.apiService.getCourseList()
@@ -23,7 +29,16 @@ export class ListCoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.defaultCourse();
     this.getCourses();
+  }
+
+  public onSubmit() {
+    this.apiService.addCourse(this.course)
+    .subscribe((response) => {
+      console.log(response)}, (error) => {
+        console.log(error);
+      });
   }
 
   public enroll() {

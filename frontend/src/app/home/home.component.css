@@ -1,0 +1,29 @@
+.underline {
+    width: 8rem;
+    height: 0.25rem;
+    background: #dd6020;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.btn {  
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 0.3rem;
+    background: transparent;
+    color: #222;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    color: #fff;
+    background: #dd6020;
+}
+
+.row-photo { 
+    border-radius: 0.5rem;
+}

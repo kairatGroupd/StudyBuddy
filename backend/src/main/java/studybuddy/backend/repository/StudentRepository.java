@@ -6,4 +6,5 @@ import studybuddy.backend.models.Student;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
+
 }

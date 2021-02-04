@@ -8,14 +8,16 @@ import { Course, Teacher, Student } from '../models/index';
 })
 export class ApiService {
 
-  private baseURL = "http://localhost:9090/api";
+  private baseURL = "http://localhost:9090";
 
-  constructor(
-    private httpClient: HttpClient
-  ) { }
+  constructor(private httpClient: HttpClient) { }
 
   public getCourseList(): Observable<Course[]> {
     return this.httpClient.get<Course[]>(`${this.baseURL}/courses`);
+  }
+
+  public addCourse(course: Course): Observable<Object> {
+    return this.httpClient.put(`${this.baseURL}/add`, course);
   }
 
   public getStudentList(): Observable<Student[]> {
