@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "admin")
+@Table(name = "administrator")
 public class Administrator {
 
   @Id
@@ -17,7 +17,7 @@ public class Administrator {
   private Long id;
   @Column(name = "admin_name")
   private String username;
-  @Column(name = "password")
+  @Column(name = "admin_pass")
   private String password;
 
   public Administrator(){}

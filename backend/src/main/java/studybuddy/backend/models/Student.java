@@ -25,7 +25,7 @@ public class Student {
   private String emailAddress;
   @Column(name = "student_points")
   private String studentPoints;
-  @Column(name = "password")
+  @Column(name = "student_pass")
   private String password;
 
   public Student() {}

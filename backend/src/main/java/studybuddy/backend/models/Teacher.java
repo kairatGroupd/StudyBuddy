@@ -23,7 +23,7 @@ public class Teacher {
   private String emailAddress;
   @Column(name = "teacher_salary")
   private Float teacherSalary;
-  @Column(name = "password")
+  @Column(name = "teacher_pass")
   private String password;
 
   public Teacher() {}
