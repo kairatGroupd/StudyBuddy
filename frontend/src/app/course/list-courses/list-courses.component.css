@@ -1,3 +1,7 @@
 table tr {
     cursor: pointer;
 }
+
+#list-courses {
+    min-height: 500px;
+}

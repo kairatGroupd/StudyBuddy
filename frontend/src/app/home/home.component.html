@@ -18,39 +18,13 @@
   </div>
 
 <div class="container mt-5 mb-4">
-    <div class="row text-center">
-      <div class="col-md-4 col-sm-6">
-        <h3 class="mt-2">Information Security</h3>
-        <img width="250" height="250" class="row-photo" src="">
-        <a class="btn btn-dark" href="" role="button">View course</a>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <h3 class="mt-2">Advanced Programming</h3>
-        <img width="250" height="250" class="row-photo" src="">
-        <a class="btn btn-dark" href="" role="button">View course</a>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <h3 class="mt-2">Network Security</h3>
-        <img width="250" height="250" class="row-photo" src="">
-        <a class="btn btn-dark" href="" role="button">View course</a>
-      </div>
-    </div>
 
-    <div class="row text-center">
-      <div class="col-md-4 col-sm-6">
-        <h3 class="mt-2 text-center">Databases</h3>
-        <img width="250" height="250" class="row-photo" src="">
-        <a class="btn btn-dark" href="" role="button">View course</a>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <h3 class="mt-2 text-center">Angular: Getting Started</h3>
-        <img width="250" height="250" class="row-photo" src="">
-        <a class="btn btn-dark" href="" role="button">View course</a>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <h3 class="mt-2 text-center">Styling Angular apps</h3>
-        <img width="250" height="250" class="row-photo" src="">
-        <a class="btn btn-dark" href="" role="button">View course</a>
-      </div>
+  <div class="row text-center">
+    <div class="col-md-4 col-sm-6" *ngFor="let course of courseList">
+      <h3 class="mt-2 course">{{course.courseName}}</h3>
+      <img width="250" height="250" class="row-photo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvanderbiltc4e.com%2Fwp-content%2Fuploads%2F2017%2F08%2FSuper-Mario-Avatar-500x500.jpg&f=1&nofb=1">
+      <a class="btn btn-dark" href="" role="button">View course</a>
     </div>
   </div>
+
+</div>

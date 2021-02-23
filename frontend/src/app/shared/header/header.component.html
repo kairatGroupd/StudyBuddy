@@ -32,6 +32,9 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
+          <a class="nav-link">{{time | date: 'hh:mm:ss a'}}</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" [routerLink]="['login']">Login</a>
         </li>
         <li class="nav-item">
