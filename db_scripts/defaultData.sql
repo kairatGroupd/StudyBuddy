@@ -68,11 +68,11 @@ values
 insert into teacher
 	(teacher_id, first_name, last_name, email_address, teacher_pass)
 values 
-	(1, 'Zoran', 'Jovanovic', 'zoran@jovanovic.com', 'teacher'),
-    (2, 'Dragan', 'Denic', 'dragan@denic.com', 'teacher'),
-    (3, 'Sasa', 'Mikovic', 'sasa@mikovic', 'teacher'),
-    (4, 'Vesna', 'Dimitrova', 'vesna@dimitrova', 'teacher'),
-    (5, 'Eftim', 'Zdravevski', 'eftim@zdravevski', 'teacher');
+	(1, 'Zoran', 'Jovanovic', 'zoran@jovanovic.com', 'teacher', 30000),
+    (2, 'Dragan', 'Denic', 'dragan@denic.com', 'teacher', 25000),
+    (3, 'Sasa', 'Mikovic', 'sasa@mikovic', 'teacher', 27000),
+    (4, 'Vesna', 'Dimitrova', 'vesna@dimitrova', 'teacher', 15000),
+    (5, 'Eftim', 'Zdravevski', 'eftim@zdravevski', 'teacher', 50000);
 
 insert into teaches
     (course_id, teacher_id)
