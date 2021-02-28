@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../models';
-import { ApiService } from '../services/api.service';
+import { CourseService } from '../services/api/course-service/course.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +13,11 @@ export class HomeComponent implements OnInit {
   public Course = new Course();
 
   constructor(
-    private apiService: ApiService
+    private courseService: CourseService
   ) { }
 
   private getCourses() {
-    this.apiService.getCourseList()
+    this.courseService.getCourseList()
     .subscribe(data => {
       this.courseList = data;
     });

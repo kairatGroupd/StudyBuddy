@@ -2,10 +2,7 @@ package studybuddy.backend.models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -13,17 +10,16 @@ import javax.persistence.Table;
 public class Course {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "course_id")
   private Long id;
+
   @Column(name = "course_name")
   private String courseName;
+
   @Column(name = "course_points")
   private Long coursePoints;
 
   public Course() {}
 
-  public Course(String courseName, Long coursePoints) {
-    this.courseName = courseName;
-    this.coursePoints = coursePoints;
-  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../models/student.model';
-import { ApiService } from '../../services/api.service';
+import { StudentService } from '../../services/api/student-service/student.service';
 
 @Component({
   selector: 'app-list-students',
@@ -13,11 +13,11 @@ export class ListStudentsComponent implements OnInit {
   public selectedStudent: Student;
 
   constructor(
-    private apiService: ApiService
+    private studentService: StudentService
   ) { }
 
   private getStudents() {
-    this.apiService.getStudentList()
+    this.studentService.getStudentList()
     .subscribe(data => {
       this.studentList = data;
     });

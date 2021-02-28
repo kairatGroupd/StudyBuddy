@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Teacher } from '../../models/teacher.model';
-import { ApiService } from '../../services/api.service';
+import { TeacherService } from '../../services/api/teacher-service/teacher.service';
 declare var $: any;
 
 @Component({
@@ -14,11 +14,11 @@ export class ListTeachersComponent implements OnInit {
   public selectedTeacher: Teacher;
 
   constructor(
-    private apiService: ApiService
+    private teacherService: TeacherService
   ) { }
 
   private getTeachers() {
-    this.apiService.getTeacherList()
+    this.teacherService.getTeachersList()
     .subscribe(data => {
       this.teacherList = data;
     });

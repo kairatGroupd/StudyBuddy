@@ -9,9 +9,9 @@ import studybuddy.backend.repository.StudentRepository;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/students")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/students")
 public class StudentController {
 
   private final StudentRepository studentRepository;
@@ -20,8 +20,8 @@ public class StudentController {
     this.studentRepository = studentRepository;
   }
 
+  @CrossOrigin("*")
   @GetMapping
-  @CrossOrigin(origins = "http://localhost:4200")
   public List<Student> getAllStudents() {
     return this.studentRepository.findAll();
   }

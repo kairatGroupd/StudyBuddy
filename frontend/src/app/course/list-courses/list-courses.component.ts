@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../../models/course.model';
-import { ApiService } from '../../services/api.service';
+import { CourseService } from '../../services/api/course-service/course.service';
 
 @Component({
   selector: 'app-list-courses',
@@ -10,10 +10,11 @@ import { ApiService } from '../../services/api.service';
 export class ListCoursesComponent implements OnInit {
 
   public courseList: Course[];
-  public course = new Course;
+  public course = new Course();
+  public showDetails = true;
 
   constructor(
-    private apiService: ApiService
+    private courseService: CourseService
   ) { }
 
   private defaultCourse() {
@@ -22,7 +23,7 @@ export class ListCoursesComponent implements OnInit {
   }
 
   private getCourses() {
-    this.apiService.getCourseList()
+    this.courseService.getCourseList()
     .subscribe(data => {
       this.courseList = data;
     });
@@ -34,11 +35,22 @@ export class ListCoursesComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.apiService.addCourse(this.course)
+    if (this.course.courseName == '') {
+      alert('Course name can\'t be empty!');
+      return;
+    }
+    if (this.course.coursePoints < 0) {
+      alert('Course points can\'t must be above 0');
+      return;
+    }
+    this.courseService.addCourse(this.course)
     .subscribe((response) => {
       console.log(response)}, (error) => {
         console.log(error);
       });
+    setTimeout(()=>{
+      window.location.reload();
+    }, 100);
   }
 
   public enroll() {
