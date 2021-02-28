@@ -4,4 +4,5 @@ export class Student {
     homeAddress: String;
     emailAddress: String;
     studentPoints: number;
+    password: String;
 }

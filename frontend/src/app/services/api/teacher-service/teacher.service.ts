@@ -15,5 +15,12 @@ export class TeacherService {
   public getTeachersList(): Observable<Teacher[]> {
     return this.httpClient.get<Teacher[]>(`${this.baseURL}`);
   }
-  
+
+  public addTeacher(teacher: Teacher): Observable<Object> {
+    return this.httpClient.post(`${this.baseURL}/add`, teacher);
+  }
+
+  public updateTeacher(id: number, teacher: Teacher): Observable<Object> {
+    return this.httpClient.post(`${this.baseURL}/add/${id}`, teacher);
+  }
 }

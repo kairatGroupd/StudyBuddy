@@ -2,10 +2,7 @@ package studybuddy.backend.models;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -13,6 +10,7 @@ import javax.persistence.Table;
 public class Student {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "student_id")
   private Long id;
   @Column(name = "first_name")
@@ -24,7 +22,7 @@ public class Student {
   @Column(name = "email_address")
   private String emailAddress;
   @Column(name = "student_points")
-  private String studentPoints;
+  private Float studentPoints;
   @Column(name = "student_pass")
   private String password;
 

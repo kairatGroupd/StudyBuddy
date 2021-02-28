@@ -20,4 +20,7 @@ export class CourseService {
     return this.httpClient.post(`${this.baseURL}/add`, course);
   }
 
+  public updateCourse(id: number, course: Course): Observable<Object> {
+    return this.httpClient.post(`${this.baseURL}/add/${id}`, course);
+  }
 }

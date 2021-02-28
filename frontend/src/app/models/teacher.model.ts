@@ -3,4 +3,5 @@ export class Teacher {
     lastName: String;
     emailAddress: String;
     teacherSalary: number;
+    password: String;
 }

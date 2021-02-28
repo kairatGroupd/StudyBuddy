@@ -35,11 +35,25 @@ public class CourseController {
   }
 
   @CrossOrigin("*")
-  @PostMapping("/add")
-  public ResponseEntity<Course> addCourse(@RequestBody Course course) {
-    this.courseRepository.save(course);
+  @PostMapping("/add/{id}")
+  public ResponseEntity<Course> addCourse(@PathVariable(required = false) String id, @RequestBody Course course) {
+    Course newCourse;
 
-    return ResponseEntity.ok(course);
+    if (id != null){
+
+      newCourse = this.courseRepository.findById(Long.parseLong(id)).orElseThrow(ResourceNotFoundException::new);
+      newCourse.setCourseName(course.getCourseName());
+      newCourse.setCourseDescription(course.getCourseDescription());
+      newCourse.setCourseImageUrl(course.getCourseImageUrl());
+      newCourse.setCoursePoints(course.getCoursePoints());
+    }
+    else{
+      newCourse = course;
+    }
+
+    this.courseRepository.save(newCourse);
+
+    return ResponseEntity.ok(newCourse);
   }
 
   @CrossOrigin("*")
@@ -47,6 +61,7 @@ public class CourseController {
   public ResponseEntity<Course> deleteCourseById(@PathVariable Long id) {
     Course course = this.courseRepository.findById(id)
       .orElseThrow( () -> new ResourceNotFoundException("not found"));
+
     this.courseRepository.deleteById(id);
 
     return ResponseEntity.ok(course);

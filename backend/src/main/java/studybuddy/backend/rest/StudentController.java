@@ -35,11 +35,27 @@ public class StudentController {
   }
 
   @CrossOrigin("*")
-  @PostMapping("/add")
-  public ResponseEntity<Student> addStudent(@RequestBody Student student) {
-    this.studentRepository.save(student);
+  @PostMapping("/add/{id}")
+  public ResponseEntity<Student> addStudent(@PathVariable(required = false) String id, @RequestBody Student student) {
+    Student newStudent;
 
-    return ResponseEntity.ok(student);
+    if (id != null){
+      newStudent = this.studentRepository.findById(Long.parseLong(id)).orElseThrow(ResourceNotFoundException::new);
+
+      newStudent.setFirstName(student.getFirstName());
+      newStudent.setLastName(student.getLastName());
+      newStudent.setEmailAddress(student.getEmailAddress());
+      newStudent.setHomeAddress(student.getHomeAddress());
+      newStudent.setPassword(student.getPassword());
+      newStudent.setStudentPoints(student.getStudentPoints());
+    }
+    else{
+      newStudent = student;
+    }
+
+    this.studentRepository.save(newStudent);
+
+    return ResponseEntity.ok(newStudent);
   }
 
   @CrossOrigin("*")
@@ -47,6 +63,7 @@ public class StudentController {
   public ResponseEntity<Student> deleteStudentById(@PathVariable Long id) {
     Student student = this.studentRepository.findById(id)
       .orElseThrow( () -> new ResourceNotFoundException("not found"));
+
     this.studentRepository.deleteById(id);
 
     return ResponseEntity.ok(student);

@@ -18,7 +18,13 @@ public class Course {
   private String courseName;
 
   @Column(name = "course_points")
-  private Long coursePoints;
+  private Float coursePoints;
+
+  @Column(name = "course_description")
+  private String courseDescription;
+
+  @Column(name = "course_image_url")
+  private String courseImageUrl;
 
   public Course() {}
 
