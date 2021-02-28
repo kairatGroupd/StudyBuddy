@@ -10,11 +10,14 @@ import { StudentService } from '../../services/api/student-service/student.servi
 export class ListStudentsComponent implements OnInit {
 
   public studentList: Student[];
+  public addStudent: Student;
   public selectedStudent: Student;
 
-  constructor(
-    private studentService: StudentService
-  ) { }
+  constructor(private studentService: StudentService) {
+    this.addStudent = new Student();
+    this.addStudent.studentPoints = 0;
+    this.selectedStudent = new Student();
+  }
 
   private getStudents() {
     this.studentService.getStudentList()
@@ -23,26 +26,20 @@ export class ListStudentsComponent implements OnInit {
     });
   }
 
-  private defaultSelectedStudent() {
-    this.selectedStudent = new Student;
-    this.selectedStudent.firstName = "";
-    this.selectedStudent.lastName = "";
-    this.selectedStudent.emailAddress = "";
-    this.selectedStudent.homeAddress = "";
-    this.selectedStudent.studentPoints = 0;
-  }
-
   ngOnInit(): void {
-    this.defaultSelectedStudent();
     this.getStudents();
   }
 
-  public selectStudent(firstName: String) {
-    for(var i=0; i<this.studentList.length; i++){
-      if(this.studentList[i].firstName == firstName) {
-        this.selectedStudent = this.studentList[i];
-      }
-    }
+  public onSubmit() {
+    
+  }
+
+  public selectStudent(student: Student) {
+    this.selectedStudent = student;
+  }
+
+  public cleanStudent() {
+    this.addStudent = new Student();
   }
 
 }

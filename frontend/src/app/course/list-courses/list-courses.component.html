@@ -20,7 +20,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let course of courseList" (click)="onSelect(course)">
+        <tr *ngFor="let course of courseList" (click)="onSelect(course)" 
+        data-toggle="modal" data-target="#courseDetailsModal">
             <td>{{course.id}}</td>
             <td>{{course.courseName}}</td>
             <td><b>{{course.coursePoints}}</b></td>
@@ -40,7 +41,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add a new course to the StudyBuddy Program!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button (click)="cleanCourse()" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -50,7 +51,7 @@
             <label> Course Name </label>
             <input type="text" 
                 class="form-control" 
-                [(ngModel)]="course.courseName"
+                [(ngModel)]="addCourse.courseName"
                 required="true"
                 name="courseName"
                 id="courseName">
@@ -59,10 +60,28 @@
             <label> Course Points </label>
             <input type="number" 
                 class="form-control" 
-                [(ngModel)]="course.coursePoints"
+                [(ngModel)]="addCourse.coursePoints"
                 required="true"
                 name="coursePoints"
                 id="coursePoints">
+          </div>
+          <div class="form-group">
+            <label> Course Description </label>
+            <input type="text" 
+                class="form-control" 
+                [(ngModel)]="addCourse.courseDescription"
+                required="true"
+                name="courseDescription"
+                id="courseDescription">
+          </div>
+          <div class="form-group">
+            <label> Course Image URL </label>
+            <input type="text" 
+                class="form-control" 
+                [(ngModel)]="addCourse.courseImageUrl"
+                required="true"
+                name="courseImageUrl"
+                id="courseImageUrl">
           </div>
         </div>
         <div class="modal-footer">
@@ -90,14 +109,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Course name: name</p>
-        <p>Course points: points</p>
-        <p>Course description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab error, porro at unde, quia ratione hic rerum veritatis quis repellendus inventore quaerat? Non fugiat quod quaerat vitae nulla exercitationem totam!</p>
-      </div>
+        <p><b>Course name:</b> &nbsp;<i>{{selectedCourse.courseName}}</i></p>
+        <p><b>Course points:</b> &nbsp;<i>{{selectedCourse.coursePoints}}</i></p>
+        <div class="text-center mb-3">
+          <img src="{{selectedCourse.courseImageUrl}}" style="max-width: 150px; max-height: 150px;">
+        </div>
+        <p><b>Course program:</b> &nbsp;<i>{{selectedCourse.courseDescription}}</i></p>
+        </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" data-dismiss="modal">
-          Close
-        </button>
+        <button class="btn btn-info" data-dismiss="modal">Edit</button>
+        <button (click)="deleteCourse(selectedCourse)" class="btn btn-danger" data-dismiss="modal">Delete</button>
+        <button (click)="enrollCourse()" class="btn btn-secondary" data-dismiss="modal">Enroll course</button>
+        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

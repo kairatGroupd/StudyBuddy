@@ -10,16 +10,13 @@ import { CourseService } from '../../services/api/course-service/course.service'
 export class ListCoursesComponent implements OnInit {
 
   public courseList: Course[];
-  public course = new Course();
+  public selectedCourse: Course;
+  public addCourse: Course;
   public showDetails = true;
 
-  constructor(
-    private courseService: CourseService
-  ) { }
-
-  private defaultCourse() {
-    this.course.courseName = "";
-    this.course.coursePoints = 0;
+  constructor(private courseService: CourseService) {
+    this.addCourse = new Course();
+    this.selectedCourse = new Course();
   }
 
   private getCourses() {
@@ -30,20 +27,19 @@ export class ListCoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.defaultCourse();
     this.getCourses();
   }
 
   public onSubmit() {
-    if (this.course.courseName == '') {
+    if (this.addCourse.courseName == '') {
       alert('Course name can\'t be empty!');
       return;
     }
-    if (this.course.coursePoints < 0) {
+    if (this.addCourse.coursePoints < 0) {
       alert('Course points can\'t must be above 0');
       return;
     }
-    this.courseService.addCourse(this.course)
+    this.courseService.addCourse(this.addCourse)
     .subscribe((response) => {
       console.log(response)}, (error) => {
         console.log(error);
@@ -53,8 +49,20 @@ export class ListCoursesComponent implements OnInit {
     }, 100);
   }
 
-  public enroll() {
+  public enrollCourse() {
     alert("You have enrolled in this course");
+  }
+
+  public deleteCourse(course: Course) {
+    this.courseService.deleteCourse(course.id);
+  }
+
+  public onSelect(course: Course) {
+    this.selectedCourse = course;
+  }
+
+  public cleanCourse() {
+    this.addCourse = new Course();
   }
 
 }

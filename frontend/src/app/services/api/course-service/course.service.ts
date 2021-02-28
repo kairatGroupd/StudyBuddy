@@ -23,4 +23,8 @@ export class CourseService {
   public updateCourse(id: number, course: Course): Observable<Object> {
     return this.httpClient.post(`${this.baseURL}/add/${id}`, course);
   }
+
+  public deleteCourse(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
+  }
 }
