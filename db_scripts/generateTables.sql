@@ -4,7 +4,7 @@ create domain clob as text;
 --administrator(admin_id, admin_name, password)
 create table administrator
 (
-    admin_id smallint,
+    admin_id smallint generated always as identity,
     admin_name varchar(50),
     admin_pass varchar(20),
     constraint pk_admin primary key (admin_id)
@@ -13,7 +13,7 @@ create table administrator
 --teacher(teacher_id, first_name, last_name, email_address, password)
 create table teacher
 (
-    teacher_id smallint,
+    teacher_id smallint generated always as identity,
     first_name varchar(50),
     last_name varchar(50),
     email_address varchar(100),
@@ -25,7 +25,7 @@ create table teacher
 --course(course_id, course_name, course_points)
 create table course
 (
-    course_id smallint,
+    course_id smallint generated always as identity,
     course_name varchar(50),
     course_points numeric(5, 2),
     constraint pk_course primary key (course_id)
