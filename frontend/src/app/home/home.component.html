@@ -17,13 +17,13 @@
     </p>
   </div>
 
-<div class="container mt-5 mb-4">
+<div class="container mt-4 mb-5">
 
   <div class="row text-center">
     <div class="col-md-4 col-sm-6" *ngFor="let course of courseList">
       <div style="height: 70px;"><h3 class="mt-2 course">{{course.courseName}}</h3></div>
       <img width="250" height="250" class="row-photo" src="{{course.courseImageUrl}}">
-      <a class="btn btn-dark" href="/courses" role="button">View course</a>
+      <a class="btn btn-dark" [routerLink]="['/courses', course.id]" role="button">View course</a>
     </div>
   </div>
 

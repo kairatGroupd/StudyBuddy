@@ -16,6 +16,10 @@ export class CourseService {
     return this.httpClient.get<Course[]>(`${this.baseURL}`);
   }
 
+  public getCourseById(id: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseURL}/${id}`);
+  }
+
   public addCourse(course: Course): Observable<Object> {
     return this.httpClient.post(`${this.baseURL}/add`, course);
   }
@@ -27,4 +31,5 @@ export class CourseService {
   public deleteCourse(id: number): Observable<Object> {
     return this.httpClient.delete(`${this.baseURL}/delete/${id}`);
   }
+  
 }

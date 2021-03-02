@@ -2,6 +2,7 @@ package studybuddy.backend.rest;
 
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import studybuddy.backend.models.Course;
 import studybuddy.backend.repository.CourseRepository;

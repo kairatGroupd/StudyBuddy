@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ListTeachersComponent } from './list-teachers/list-teachers.component';
 
 @NgModule({
@@ -7,7 +8,8 @@ import { ListTeachersComponent } from './list-teachers/list-teachers.component';
     ListTeachersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class TeacherModule { }

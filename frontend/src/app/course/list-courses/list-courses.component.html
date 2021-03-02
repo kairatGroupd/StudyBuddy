@@ -97,7 +97,6 @@
 <div  class="modal fade"
       id="courseDetailsModal"
       tabindex="-1"
-      *ngIf="showDetails"
       role="dialog"
       aria-hidden="true">
   <div class="modal-dialog">
@@ -117,10 +116,9 @@
         <p><b>Course program:</b> &nbsp;<i>{{selectedCourse.courseDescription}}</i></p>
         </div>
       <div class="modal-footer">
-        <button class="btn btn-info" data-dismiss="modal">Edit</button>
+        <button (click)="editCourse(selectedCourse)" data-toggle="modal" data-target="#addCourseModal" class="btn btn-info" data-dismiss="modal">Edit</button>
         <button (click)="deleteCourse(selectedCourse)" class="btn btn-danger" data-dismiss="modal">Delete</button>
         <button (click)="enrollCourse()" class="btn btn-secondary" data-dismiss="modal">Enroll course</button>
-        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
