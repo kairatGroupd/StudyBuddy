@@ -8,6 +8,7 @@ import studybuddy.backend.models.Course;
 import studybuddy.backend.repository.CourseRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin("*")
 @RestController
@@ -33,6 +34,17 @@ public class CourseController {
       .orElseThrow( () -> new ResourceNotFoundException("not found"));
 
     return ResponseEntity.ok(course);
+  }
+
+  @CrossOrigin("*")
+  @GetMapping("/belongsto/{id}")
+  public ResponseEntity<List<Course>> getCoursesForPath(@PathVariable Long id) {
+    List<Long> courseIds = this.courseRepository.findAllCoursesForPath(id);
+
+    return ResponseEntity.ok(courseIds.stream()
+      .map(cid -> this.courseRepository.findById(cid).orElseThrow(ResourceNotFoundException::new))
+      .collect(Collectors.toList())
+    );
   }
 
   @CrossOrigin("*")

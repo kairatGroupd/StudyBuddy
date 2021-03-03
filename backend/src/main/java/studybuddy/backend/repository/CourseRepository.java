@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
-
+  @Query(value = "SELECT course_id FROM study_buddy.belongs_to where path_id = ?1", nativeQuery = true)
+  List<Long> findAllCoursesForPath(Long id);
 }
