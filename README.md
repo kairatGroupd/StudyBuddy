@@ -1,4 +1,7 @@
 # StudyBuddy
+
+<h4>Study Buddy is a web application for the purposes of online course education. It's basically a udemy clone :)</h4>
+
 Frontend  - **Angular**<br>
 Backend   - **Spring**<br>
 Database  - **Postgres**<br>
